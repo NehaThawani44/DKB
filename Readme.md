@@ -52,10 +52,12 @@ A high-performance URL shortener service with caching support using Redis.
 - **GET** /resolve/{shortenedUrl}
 - ```json
   
-{
-"shortenedUrl": "http://short.ly/abc123"
-}
-
-Response:
-json
+   {
+   "shortenedUrl": "http://short.ly/abc123"
+   }
+### Response
+- ```json
+  {
+  "originalUrl": "https://example.com"
+   }
 
