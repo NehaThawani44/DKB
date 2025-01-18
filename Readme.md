@@ -61,3 +61,9 @@ A high-performance URL shortener service with caching support using Redis.
   "originalUrl": "https://example.com"
    }
 
+### Reference for System Design, here are some useful links:
+    -[System Design- AlgoMaster](https://blog.algomaster.io/p/design-a-url-shortener)
+    -[System Design- GeeksforGeeks](https://www.geeksforgeeks.org/system-design-url-shortening-service/)
+    -[System Design- systemdesign.one](https://systemdesign.one/url-shortening-system-design/)
+
+
