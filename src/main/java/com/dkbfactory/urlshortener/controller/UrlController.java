@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/")
 public class UrlController {
     private final UrlService urlService;
 
@@ -27,7 +27,7 @@ public class UrlController {
 //        return ResponseEntity.ok(Map.of("shortened_url", shortUrl));
 //    }
 
-    @GetMapping("/{hash}")
+    @GetMapping("{hash}")
     public ResponseEntity<Void> resolveUrl(@PathVariable String hash, HttpServletResponse response) throws IOException {
         String originalUrl = urlService.getOriginalUrl(hash);
         response.sendRedirect(originalUrl);
@@ -36,7 +36,6 @@ public class UrlController {
 
     @PostMapping("/shorten")
     public ResponseEntity<?> shortenUrl(@RequestBody(required = false) Map<String, String> request) {
-        // Validate request body
         if (request == null || !request.containsKey("url") ||
                 request.get("url") == null || request.get("url").trim().isEmpty()) {
             return ResponseEntity

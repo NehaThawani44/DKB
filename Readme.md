@@ -49,7 +49,7 @@ A high-performance URL shortener service with caching support using Redis.
   }
 
 ### Resolve URL
-- **GET** /resolve/{shortenedUrl}
+- **GET** /{hash}
 - ```json
   
    {
@@ -62,8 +62,8 @@ A high-performance URL shortener service with caching support using Redis.
    }
 
 ### Reference for System Design, here are some useful links:
-    -[System Design- AlgoMaster](https://blog.algomaster.io/p/design-a-url-shortener)
-    -[System Design- GeeksforGeeks](https://www.geeksforgeeks.org/system-design-url-shortening-service/)
-    -[System Design- systemdesign.one](https://systemdesign.one/url-shortening-system-design/)
+    -[System Design- AlgoMaster] (https://blog.algomaster.io/p/design-a-url-shortener)
+    -[System Design- GeeksforGeeks] (https://www.geeksforgeeks.org/system-design-url-shortening-service/)
+    -[System Design- systemdesign.one] (https://systemdesign.one/url-shortening-system-design/)
 
 

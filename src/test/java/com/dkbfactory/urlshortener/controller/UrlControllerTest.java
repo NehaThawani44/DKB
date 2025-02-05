@@ -44,7 +44,7 @@ class UrlControllerTest {
         when(urlService.shortenUrl(originalUrl)).thenReturn(shortUrl);
 
         // Act & Assert
-        mockMvc.perform(post("/api/v1/shorten")
+        mockMvc.perform(post("/api/shorten")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"url\":\"" + originalUrl + "\"}")
                         .accept(MediaType.APPLICATION_JSON))
@@ -56,14 +56,13 @@ class UrlControllerTest {
 
     @Test
     void testResolveUrl() throws Exception {
-        // Arrange
         String hash = "abc123";
         String originalUrl = "https://www.example.com";
 
         when(urlService.getOriginalUrl(hash)).thenReturn(originalUrl);
 
         // Act & Assert
-        mockMvc.perform(get("/api/v1/{hash}", hash))
+        mockMvc.perform(get("/api/{hash}", hash))
                 .andExpect(status().isFound())
                 .andExpect(header().string("Location", originalUrl));
 
@@ -103,19 +102,19 @@ class UrlControllerTest {
     @Test
     void testShortenUrlWithInvalidInput() throws Exception {
         // Test empty request body
-        mockMvc.perform(post("/api/v1/shorten")
+        mockMvc.perform(post("/api/shorten")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{}"))
                 .andExpect(status().isBadRequest());
 
         // Test null URL
-        mockMvc.perform(post("/api/v1/shorten")
+        mockMvc.perform(post("/api/shorten")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"url\":null}"))
                 .andExpect(status().isBadRequest());
 
         // Test empty URL string
-        mockMvc.perform(post("/api/v1/shorten")
+        mockMvc.perform(post("/api/shorten")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"url\":\"\"}"))
                 .andExpect(status().isBadRequest());
