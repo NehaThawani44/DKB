@@ -49,7 +49,7 @@ A high-performance URL shortener service with caching support using Redis.
   }
 
 ### Resolve URL
-- **GET** /{hash}
+- **GET** `/{hash}`
 - ```json
   
    {
